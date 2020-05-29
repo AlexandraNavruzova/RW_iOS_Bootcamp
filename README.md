@@ -1,7 +1,7 @@
 # RW_iOS_Bootcamp
 Challenges completed within the bootcamp
 
-1. #Name#: Alexandara Navruzova
+1. Name: Alexandara Navruzova
 2. #Discord Username#: haughty.grumbler
 3. #Basic Location#: Russia, Moscow
 4. #Your programming experience#: less than a year

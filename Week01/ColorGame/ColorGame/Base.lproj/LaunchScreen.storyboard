@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="unnamed" translatesAutoresizingMaskIntoConstraints="NO" id="gGt-mM-ANu">
-                                <rect key="frame" x="86" y="356" width="243" height="128"/>
+                                <rect key="frame" x="66" y="357" width="243" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="tbL-ve-4JC"/>
                                 </constraints>

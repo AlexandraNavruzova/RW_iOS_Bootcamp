@@ -51,5 +51,13 @@ class ViewController: UIViewController {
         }
     }
     
+    // Alert function
+    @IBAction func showAlert() {
+        let alert = UIAlertController(title: "Name the color!", message: "Enter color's name here", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Enter", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
 }
 

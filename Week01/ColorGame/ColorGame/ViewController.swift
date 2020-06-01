@@ -137,12 +137,14 @@ class ViewController: UIViewController {
         
     }
 
+    // Sets sliders' names
     func setColorNames(firstSliderName: String, secondSliderName: String, thirdSliderName: String) {
         firstSliderNameLabel.text = firstSliderName
         secondSliderNameLabel.text = secondSliderName
         thirdSliderNameLabel.text = thirdSliderName
     }
     
+    // Sets slider's values
     func setSliderValues(firstSliderValue: Float, secondSliderValue: Float, thirdSliderValue: Float) {
         reset()
         firstSlider.maximumValue = firstSliderValue

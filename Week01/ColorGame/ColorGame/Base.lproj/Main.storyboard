@@ -167,6 +167,17 @@
                                     <constraint firstItem="iQm-GV-HZT" firstAttribute="leading" secondItem="vSU-52-nOE" secondAttribute="trailing" constant="45" id="zWI-7N-xxc"/>
                                 </constraints>
                             </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="f27-VN-Ofh">
+                                <rect key="frame" x="142" y="521" width="131" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                                <connections>
+                                    <action selector="toggleMode:" destination="BYZ-38-t0r" eventType="valueChanged" id="T3T-YC-vE1"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -178,13 +189,17 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="blueLabel" destination="V9V-JT-GQd" id="LDI-Jv-jEj"/>
-                        <outlet property="blueSlider" destination="S7E-P6-QaC" id="yMP-ug-G9j"/>
                         <outlet property="colorNameLabel" destination="Xk9-pL-ZtI" id="eVy-qL-u3S"/>
-                        <outlet property="greenLabel" destination="RoC-hA-LkB" id="QAf-sW-122"/>
-                        <outlet property="greenSlider" destination="WyP-cV-BOS" id="evz-PL-IKC"/>
-                        <outlet property="redLabel" destination="Lpj-Ge-GO1" id="59T-Nw-zKg"/>
-                        <outlet property="redSlider" destination="z2Y-6l-POO" id="bGa-yG-I65"/>
+                        <outlet property="firstLabel" destination="Lpj-Ge-GO1" id="59T-Nw-zKg"/>
+                        <outlet property="firstSlider" destination="z2Y-6l-POO" id="bGa-yG-I65"/>
+                        <outlet property="firstSliderNameLabel" destination="bN6-xJ-bHY" id="ahb-VR-6qW"/>
+                        <outlet property="secondLabel" destination="RoC-hA-LkB" id="QAf-sW-122"/>
+                        <outlet property="secondSlider" destination="WyP-cV-BOS" id="evz-PL-IKC"/>
+                        <outlet property="secondSliderNameLabel" destination="3hj-tJ-UTa" id="zo9-Ge-mnp"/>
+                        <outlet property="segmentedControl" destination="f27-VN-Ofh" id="eiY-h2-84n"/>
+                        <outlet property="thirdLabel" destination="V9V-JT-GQd" id="LDI-Jv-jEj"/>
+                        <outlet property="thirdSlider" destination="S7E-P6-QaC" id="yMP-ug-G9j"/>
+                        <outlet property="thirdSliderNameLabel" destination="OQt-Bi-NP5" id="PLG-eG-Jpa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

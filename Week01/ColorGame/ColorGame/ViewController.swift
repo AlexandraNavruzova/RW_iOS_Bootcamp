@@ -12,24 +12,35 @@ class ViewController: UIViewController {
     
     //Mark: Properties
     var currentValue = 0
-    var redValue = 0
-    var greenValue = 0
-    var blueValue = 0
-    var defaultColorName = "Color Name"
+    var firstValue = 0
+    var secondValue = 0
+    var thirdValue = 0
+    let defaultColorName = "Color Name"
+    let RGBMode = 0
+    let HSBMode = 1
+    var currentMode: Int? = nil
     
+    // Sliders
+    @IBOutlet weak var firstSlider: UISlider!
+    @IBOutlet weak var secondSlider: UISlider!
+    @IBOutlet weak var thirdSlider: UISlider!
     
-    @IBOutlet weak var redSlider: UISlider!
-    @IBOutlet weak var greenSlider: UISlider!
-    @IBOutlet weak var blueSlider: UISlider!
-    @IBOutlet weak var redLabel: UILabel!
-    @IBOutlet weak var greenLabel: UILabel!
-    @IBOutlet weak var blueLabel: UILabel!
+    // Labels
+    @IBOutlet weak var firstLabel: UILabel!
+    @IBOutlet weak var secondLabel: UILabel!
+    @IBOutlet weak var thirdLabel: UILabel!
+    @IBOutlet weak var firstSliderNameLabel: UILabel!
+    @IBOutlet weak var secondSliderNameLabel: UILabel!
+    @IBOutlet weak var thirdSliderNameLabel: UILabel!
     @IBOutlet weak var colorNameLabel: UILabel!
 
-
+    // Controls
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         colorNameLabel.text = defaultColorName
+        currentMode = RGBMode
 
 
     }
@@ -40,15 +51,15 @@ class ViewController: UIViewController {
         let roundedValue = slider.value.rounded()
         currentValue = Int(roundedValue)
         switch slider {
-        case redSlider:
-            redLabel.text = String(currentValue)
-            redValue = currentValue
-        case greenSlider:
-            greenLabel.text = String(currentValue)
-            greenValue = currentValue
-        case blueSlider:
-            blueLabel.text = String(currentValue)
-            blueValue = currentValue
+        case firstSlider:
+            firstLabel.text = String(currentValue)
+            firstValue = currentValue
+        case secondSlider:
+            secondLabel.text = String(currentValue)
+            secondValue = currentValue
+        case thirdSlider:
+            thirdLabel.text = String(currentValue)
+            thirdValue = currentValue
         default:
             print("i don't know what's that")
         }
@@ -73,18 +84,34 @@ class ViewController: UIViewController {
     
     // Resets the labels and sliders
     @IBAction func reset() {
-        redValue = 0
-        greenValue = 0
-        blueValue = 0
+        firstValue = 0
+        secondValue = 0
+        thirdValue = 0
         currentValue = 0
         self.view.backgroundColor = UIColor.white
-        redLabel.text = String(currentValue)
-        greenLabel.text = String(currentValue)
-        blueLabel.text = String(currentValue)
-        redSlider.value = Float(currentValue)
-        greenSlider.value = Float(currentValue)
-        blueSlider.value = Float(currentValue)
+        firstLabel.text = String(currentValue)
+        secondLabel.text = String(currentValue)
+        thirdLabel.text = String(currentValue)
+        firstSlider.value = Float(currentValue)
+        secondSlider.value = Float(currentValue)
+        thirdSlider.value = Float(currentValue)
         colorNameLabel.text = defaultColorName
+    }
+
+    // Switches b/w RGB and HSB modes
+    @IBAction func toggleMode(_ sender: Any) {
+        switch segmentedControl.selectedSegmentIndex {
+            case RGBMode:
+                currentMode = RGBMode
+                setColorNames(firstSliderName: "Red", secondSliderName: "Green", thirdSliderName: "Blue")
+                setSliderValues(firstSliderValue: 255, secondSliderValue: 255, thirdSliderValue: 255)
+            case HSBMode:
+                currentMode = HSBMode
+                setColorNames(firstSliderName: "Hue", secondSliderName: "Saturation", thirdSliderName: "Brightness")
+                setSliderValues(firstSliderValue: 360, secondSliderValue: 100, thirdSliderValue: 100)
+            default:
+                break
+        }
     }
     
     //MARK: Functions
@@ -99,9 +126,28 @@ class ViewController: UIViewController {
     
     // Sets the background color
     func setBackgroundColor() {
-        let backgroundColor = UIColor(red: CGFloat(Float(redValue) / 255), green: CGFloat(Float(greenValue) / 255), blue: CGFloat(Float(blueValue) / 255), alpha: 1.0)
+        
+        let backgroundColor: UIColor!
+        if currentMode == RGBMode {
+            backgroundColor = UIColor(red: CGFloat(Float(firstValue) / 255), green: CGFloat(Float(secondValue) / 255), blue: CGFloat(Float(thirdValue) / 255), alpha: 1.0)
+        } else {
+            backgroundColor = UIColor(hue: CGFloat(Float(firstValue) / 360), saturation: CGFloat(Float(secondValue) / 100), brightness: CGFloat(Float(thirdValue) / 100), alpha: 1.0)
+        }
         self.view.backgroundColor = backgroundColor
         
+    }
+
+    func setColorNames(firstSliderName: String, secondSliderName: String, thirdSliderName: String) {
+        firstSliderNameLabel.text = firstSliderName
+        secondSliderNameLabel.text = secondSliderName
+        thirdSliderNameLabel.text = thirdSliderName
+    }
+    
+    func setSliderValues(firstSliderValue: Float, secondSliderValue: Float, thirdSliderValue: Float) {
+        reset()
+        firstSlider.maximumValue = firstSliderValue
+        secondSlider.maximumValue = secondSliderValue
+        thirdSlider.maximumValue = thirdSliderValue
     }
 
  }

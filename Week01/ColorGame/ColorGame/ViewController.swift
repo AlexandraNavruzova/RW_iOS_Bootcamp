@@ -144,7 +144,7 @@ class ViewController: UIViewController {
         thirdSliderNameLabel.text = thirdSliderName
     }
     
-    // Sets slider's values
+    // Sets slides' values
     func setSliderValues(firstSliderValue: Float, secondSliderValue: Float, thirdSliderValue: Float) {
         reset()
         firstSlider.maximumValue = firstSliderValue

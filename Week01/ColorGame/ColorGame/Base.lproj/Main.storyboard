@@ -168,11 +168,11 @@
                                 </constraints>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="f27-VN-Ofh">
-                                <rect key="frame" x="142" y="521" width="131" height="31"/>
+                                <rect key="frame" x="162" y="521" width="91" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
+                                    <segment title="RGB"/>
+                                    <segment title="HSB"/>
                                 </segments>
                                 <connections>
                                     <action selector="toggleMode:" destination="BYZ-38-t0r" eventType="valueChanged" id="T3T-YC-vE1"/>

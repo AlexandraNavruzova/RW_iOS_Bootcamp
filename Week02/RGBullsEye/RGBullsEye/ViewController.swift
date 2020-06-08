@@ -37,28 +37,85 @@ class ViewController: UIViewController {
   
   @IBOutlet weak var roundLabel: UILabel!
   @IBOutlet weak var scoreLabel: UILabel!
-  
-  let game = BullsEyeGame()
-  var rgb = RGB()
+
+    var rgb = RGB()
+    let game = BullsEyeGame()
+
   
   @IBAction func aSliderMoved(sender: UISlider) {
-
+    let roundedValue = sender.value.rounded()
+    let currentValue = Int(roundedValue)
+    switch sender {
+    case redSlider:
+        redLabel.text = "R \(currentValue)"
+        rgb.r = currentValue
+    case greenSlider:
+        greenLabel.text = "G \(currentValue)"
+        rgb.g = currentValue
+    case blueSlider:
+        blueLabel.text = "B \(currentValue)"
+        rgb.b = currentValue
+    default:
+        print("i don't know what's that")
+    }
+    guessLabel.backgroundColor = UIColor(rgbStruct: rgb)
   }
   
   @IBAction func showAlert(sender: AnyObject) {
-
+    game.calculateScore(guessColor: rgb)
+    
+    let title = game.getTitle()
+    
+    let message = game.getMessage()
+    
+    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    
+    let action = UIAlertAction(title: "OK", style: .default, handler: {
+      action in
+        self.reset()
+        self.game.startNewRound()
+        self.updateView()
+    })
+    
+    alert.addAction(action)
+    
+    present(alert, animated: true, completion: nil)
   }
   
   @IBAction func startOver(sender: AnyObject) {
-
+    game.startNewGame()
+    updateView()
+    reset()
   }
   
   func updateView() {
-
-  }
+    let targetColor = game.targetColor
+    print(targetColor)
+    targetLabel.backgroundColor = UIColor(rgbStruct: targetColor)
+    roundLabel.text = "Round: \(game.round)"
+    scoreLabel.text = "Score: \(game.score)"
+    redSlider.value = 127
+    greenSlider.value = 127
+    blueSlider.value = 127
+    }
+    
+    func reset() {
+        rgb.r = 127
+        rgb.g = 127
+        rgb.b = 127
+        guessLabel.backgroundColor = UIColor(rgbStruct: rgb)
+        redLabel.text = "R \(rgb.r)"
+        greenLabel.text = "G \(rgb.g)"
+        blueLabel.text = "B \(rgb.b)"
+    }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    reset()
+    game.startNewGame()
+    updateView()
   }
+    
 }
 

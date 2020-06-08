@@ -18,7 +18,7 @@
 /* Begin PBXFileReference section */
 		352A679520D171E800D5BF05 /* BullsEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BullsEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		352A679820D171E800D5BF05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		352A679A20D171E800D5BF05 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../ViewController.swift; sourceTree = "<group>"; };
+		352A679A20D171E800D5BF05 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		352A679D20D171E800D5BF05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		352A679F20D171EA00D5BF05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		352A67A220D171EA00D5BF05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,39 +56,15 @@
 		352A679720D171E800D5BF05 /* BullsEye */ = {
 			isa = PBXGroup;
 			children = (
-				39FA4F70248B7E00000621E3 /* Model */,
-				39FA4F71248B7E12000621E3 /* View */,
-				39FA4F72248B7E1E000621E3 /* Controller */,
 				352A679820D171E800D5BF05 /* AppDelegate.swift */,
+				39FA4F73248B7E9C000621E3 /* BullsEyeGame.swift */,
+				352A679A20D171E800D5BF05 /* ViewController.swift */,
 				352A679C20D171E800D5BF05 /* Main.storyboard */,
 				352A679F20D171EA00D5BF05 /* Assets.xcassets */,
 				352A67A120D171EA00D5BF05 /* LaunchScreen.storyboard */,
 				352A67A420D171EA00D5BF05 /* Info.plist */,
 			);
 			path = BullsEye;
-			sourceTree = "<group>";
-		};
-		39FA4F70248B7E00000621E3 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				39FA4F73248B7E9C000621E3 /* BullsEyeGame.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		39FA4F71248B7E12000621E3 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		39FA4F72248B7E1E000621E3 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				352A679A20D171E800D5BF05 /* ViewController.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
